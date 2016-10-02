@@ -5,7 +5,6 @@ Our blockchain entry into the #disthealth #hackathon
 
 # Links
 * [Our Presentation on our proposed solution](https://docs.google.com/presentation/d/16kK7OJzINItUhMO_3toGFg3vpAs3yIDP1l5XXYZWGZQ/edit?usp=sharing)
-	
 
 # Design Considerations
 * IPFS is used for Public Distributed Storage
@@ -51,7 +50,9 @@ Our smart contract between the User (Patient) and their Payer (Insurance Company
 * [Ethereum (blockchain)](https://www.ethereum.org/)
 * [Tierion (non-repudiation system  - uses blockchain)](https://tierion.com/)
 	* <https://tierion.com/proof>
-* [IPFS (distributed storage)](https://ipfs.io/)
+* [IPFS (distributed storage)](https://ipfs.io/). Other alternatives:
+  * [MIT Enigma](http://enigma.media.mit.edu/)
+  * [Blockstack](https://blockstack.org/)
 
 # FAQ
 
@@ -65,3 +66,23 @@ All we store is a cryptographic digest of the file, linked to the time in which 
 
 The key advantages are anonymity, privacy, and getting a decentralized proof which can't be erased or modified by anyone (third parties or governments). Your document's existence is permanently validated by the blockchain even if this site is compromised or down, so you don't depend or need to trust any central authority. All previous data timestamping solutions lack this freedom.
 
+# Log
+
+### Generate certs for hospitals
+
+* setup DNS for hospitals (mayoclinic.apifocal.org, nashvillecentral.apifocal.org)
+* install certbot
+* install & configure apache2 (80/443)
+* setup vhost for hospital
+	* http to https redirect: http://mayoclinic.apifocal.org -> https://mayoclinic.apifocal.org
+	* http to https redirect: http://nashvillegeneral.apifocal.org -> https://nashvillegeneral.apifocal.org
+* generate certs using letsencrypt
+
+```ssh
+sudo ./certbot-auto certonly --webroot -w /var/www/html -d nashvillegeneral.apifocal.org --email alex@apifocal.com
+sudo ./certbot-auto certonly --webroot -w /var/www/html -d mayoclinic.apifocal.org --email alex@apifocal.com
+```
+
+### Setup a private Ethereum Blockchain
+
+### Create a Smart Contract
