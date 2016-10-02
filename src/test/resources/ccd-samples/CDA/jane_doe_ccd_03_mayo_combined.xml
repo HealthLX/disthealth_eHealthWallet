@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="CDA.xsl"?>
 <!--
+	This is the final file for John Smith's CCD from all Providers
+-->
+
+<!--
  Title:        Continuity of Care Document (CCD)
  Filename:     C-CDA_R2.1_CCD.xml 
- Created by:   Lantana Consulting Group, LLC
  Updated: C-CDA R2.1 editing team 
  
- $LastChangedDate: 2015-8-11 11:25:09 -0400 (Wed, 11 Aug 2015) $
+ $LastChangedDate: 2016-10-02 02:07:09 -0400 (Sun, 02 Oct 2016) $
   
  ********************************************************
  Disclaimer: This sample file contains representative data elements to represent a Continuity of Care Document (CCD). 
@@ -50,9 +53,9 @@
 			<!-- HP is "primary home" from HL7 AddressUse 2.16.840.1.113883.5.1119 -->
 			<patient>
 				<name use="L">
-					<given>Eve</given>
+					<given>Jane</given>
 					<!-- The "SP" is "Spouse" from HL7 Code System EntityNamePartQualifier 2.16.840.1.113883.5.43 -->
-					<family qualifier="SP">Betterhalf</family>
+					<family qualifier="SP">Doe</family>
 				</name>
 				<administrativeGenderCode code="F" displayName="Female" codeSystem="2.16.840.1.113883.5.1" codeSystemName="AdministrativeGender"/>
 				<!-- Date of birth need only be precise to the day -->
@@ -79,7 +82,7 @@
 						<name>
 							<given>Boris</given>
 							<given qualifier="CL">Bo</given>
-							<family>Betterhalf</family>
+							<family>Doe</family>
 						</name>
 					</guardianPerson>
 				</guardian>
@@ -285,7 +288,7 @@
 				<name>
 					<given>Boris</given>
 					<given qualifier="CL">Bo</given>
-					<family>Betterhalf</family>
+					<family>Doe</family>
 				</name>
 			</relatedPerson>
 		</relatedEntity>
@@ -389,7 +392,7 @@
 				<name>
 					<given>Boris</given>
 					<given qualifier="CL">Bo</given>
-					<family>Betterhalf</family>
+					<family>Doe</family>
 				</name>
 			</associatedPerson>
 		</associatedEntity>
@@ -410,7 +413,7 @@
 				<name>
 					<given>Boris</given>
 					<given qualifier="CL">Bo</given>
-					<family>Betterhalf</family>
+					<family>Doe</family>
 				</name>
 			</associatedPerson>
 		</associatedEntity>
@@ -633,6 +636,14 @@
 								<tr>
 									<td ID="substance2">Codeine</td>
 									<td ID="reaction2">Wheezing</td>
+								</tr>
+								<tr>
+									<td ID="substance3">Morphine</td>
+									<td ID="reaction3">Respiratory Issues</td>
+								</tr>
+								<tr>
+									<td ID="substance4">Latex</td>
+									<td ID="reaction4">Skin rash on contact area</td>
 								</tr>
 							</tbody>
 						</table>
@@ -881,6 +892,12 @@
 									<td>Community Urgent Care Center</td>
 									<td>September 27, 2012 at 1:00pm</td>
 								</tr>
+								<tr>
+									<td ID="Encounter2"> ER Visit </td>
+									<td>Nashville General</td>
+									<td>Nashville General Emergency Room</td>
+									<td>October 02, 2016 at 4:00am</td>
+								</tr>
 							</tbody>
 						</table>
 					</text>
@@ -945,7 +962,66 @@
 								</observation>
 							</entryRelationship>
 						</encounter>
-					</entry>
+						<encounter classCode="ENC" moodCode="EVN">
+							<!-- ** Encounter Activity (V3) ** -->
+							<templateId root="2.16.840.1.113883.10.20.22.4.49" extension="2015-08-01"/>
+							<templateId root="2.16.840.1.113883.10.20.22.4.49"/>
+							<id root="2a620155-9d11-439e-92b3-5d9815ff4de8"/>
+							<code code="99213" displayName="Emergency Room Treatment - 60 Minutes" codeSystemName="CPT-4" codeSystem="2.16.840.1.113883.6.12">
+								<originalText>
+									<reference value="#Encounter2"/>
+								</originalText>
+								<!-- MAY MAY contain zero or one [0..1] translation (CONF:1198-32323)
+									The translation may exist to map the code of EncounterTypeCode (2.16.840.1.113883.3.88.12.80.32) valueset to the code of Encounter Planned (2.16.840.1.113883.11.20.9.52) valueset.
+								<translation code="AMB" codeSystem="2.16.840.1.113883.5.4" displayName="Ambulatory" codeSystemName="HL7 ActEncounterCode"/>
+								-->
+							</code>
+							<effectiveTime value="201610020400+0100"/>
+							<performer>
+								<assignedEntity>
+									<!-- Provider NPI "333444555" -->
+									<id extension="333444555" root="2.16.840.1.113883.4.6"/>
+									<code code="59058001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="General Physician"/>
+								</assignedEntity>
+							</performer>
+							<participant typeCode="LOC">
+								<participantRole classCode="SDLOC">
+									<templateId root="2.16.840.1.113883.10.20.22.4.32"/>
+									<!-- Service Delivery Location template -->
+									<code code="1160-1" codeSystem="2.16.840.1.113883.6.259" codeSystemName="HL7 HealthcareServiceLocation" displayName="Emergency Room"/>
+									<addr>
+										<streetAddressLine>555 Health Drive</streetAddressLine>
+										<city>Nashville</city>
+										<state>TN</state>
+										<postalCode>37208</postalCode>
+										<country>US</country>
+									</addr>
+									<telecom use="WP" value="tel: +1(555)555-5552"/>
+									<playingEntity classCode="PLC">
+										<name>Nashville General Emergency Room</name>
+									</playingEntity>
+								</participantRole>
+							</participant>
+							<entryRelationship typeCode="RSON">
+								<!-- ** Indivcation (V2) ** -->
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.22.4.19" extension="2014-06-09"/>
+									<templateId root="2.16.840.1.113883.10.20.22.4.19"/>
+									<id root="db734647-fc99-424c-a864-7e3cda82e703" extension="45665"/>
+									<!-- code is required; MAY be selected from ValueSet Problem Type (LOINC) urn:oid:2.16.840.1.113883.3.88.12.3221.7.2 STATIC 2014-09-02 (CONF:1098-31229) -->
+									<code code="404684003" displayName="Finding" codeSystemName="SNOMED-CT" codeSystem="2.16.840.1.113883.6.96">
+										<!--  of course this MAY be present 
+										<translation code="75321-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Clinical finding"/>
+										-->
+									</code>
+									<statusCode code="completed"/>
+									<effectiveTime>
+										<low value="201610020400+0100"/>
+									</effectiveTime>
+									<value xsi:type="CD" code="233604007" displayName="Pneumonia" codeSystem="2.16.840.1.113883.6.96"/>
+								</observation>
+							</entryRelationship>
+						</encounter>					</entry>
 				</section>
 			</component>
 			<!-- ************************ FAMILY HISTORY *********************** -->
@@ -1601,6 +1677,7 @@
 					<text>
 						<content styleCode="Bold">Medical Equipment</content>
 						<list>
+							<item>Crutches, October 02, 2016</item>
 							<item>Implanted Devices: Cardiac PaceMaker July 3, 2013</item>
 							<item>Implanted Devices: Upper GI Prosthesis, January 3, 2013</item>
 							<item>Cane, February 2, 2003</item>
@@ -1717,7 +1794,7 @@
 							<id root="d5b614bd-01ce-410d-8726-e1fd01dcc72a"/>
 							<code code="103716009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Stent Placement">
 								<originalText>
-									<reference value="#Proc1"/>
+									<reference value="#Proc2"/>
 								</originalText>
 							</code>
 							<statusCode code="completed"/>
@@ -2146,7 +2223,7 @@
 											<assignedPerson>
 												<name>
 													<given>Boris</given>
-													<family>Betterhalf</family>
+													<family>Doe</family>
 												</name>
 											</assignedPerson>
 										</assignedEntity>
@@ -2172,7 +2249,7 @@
 												<name>
 													<!-- Name is needed if different than health plan name. -->
 													<given>Boris</given>
-													<family>Betterhalf</family>
+													<family>Doe</family>
 												</name>
 												<sdtc:birthTime value="19750501"/>
 											</playingEntity>
@@ -2224,7 +2301,7 @@
 					<title>TREATMENT PLAN</title>
 					<text>
 						<content styleCode="Bold"> Hand-off Communication:</content>
-						<content>Nurse Florence, RN to MD to Nancy Nightingale, RN</content>
+						<content>Nurse Jackie, RN to MD to Tiffany Tactile, RN</content>
 						<br/>
 						<br/>
 						<table border="1" width="100%">
@@ -2240,16 +2317,16 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td>Procedure: Colonoscopy</td>
-									<td>June 15, 2013</td>
+									<td>Procedure: Observe Care of Post-Operative Care for Ankle surgery and cast</td>
+									<td>October 02, 1016</td>
 									<td>1st, Medium</td>
 									<td>3rd, Medium</td>
 									<td/>
 									<td>Caregiver: Mother</td>
 								</tr>
 								<tr>
-									<td>Medication: Heparin 0.25 ml pre-filled syringe</td>
-									<td>July 12, 2013</td>
+									<td>Medication: Ibuprofin</td>
+									<td>October 02, 1016</td>
 									<td/>
 									<td>First, Medium</td>
 									<td>Third, Medium</td>
@@ -2258,89 +2335,6 @@
 							</tbody>
 						</table>
 					</text>
-					<entry>
-						<!-- Planned Procedure (V2) -->
-						<procedure moodCode="RQO" classCode="PROC">
-							<templateId root="2.16.840.1.113883.10.20.22.4.41" extension="2014-06-09"/>
-							<templateId root="2.16.840.1.113883.10.20.22.4.41"/>
-							<id root="9a6d1bac-17d3-4195-89c4-1121bc809b5a"/>
-							<code code="73761001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Colonoscopy"/>
-							<statusCode code="active"/>
-							<effectiveTime value="20130613"/>
-							<!--
-								Author Participation Template
-								In this case, the author is the same as a participant already
-								described in the header.
-								However, the author could be a different provider - someone else in the 
-								header, or a new provider not elsewhere specified.
-							-->
-							<author typeCode="AUT">
-								<templateId root="2.16.840.1.113883.10.20.22.4.119"/>
-								<time value="201306131145-0800"/>
-								<assignedAuthor>
-									<!-- This id points back to a participant in the header -->
-									<id extension="555555555" root="2.16.840.1.113883.4.6"/>
-									<code code="207QA0505X" displayName="Adult Medicine" codeSystem="2.16.840.1.113883.6.101" codeSystemName="Healthcare Provider Taxonomy (HIPAA)"/>
-								</assignedAuthor>
-							</author>
-							<entryRelationship typeCode="COMP">
-								<!-- Planned Coverage -->
-								<act classCode="ACT" moodCode="INT">
-									<templateId root="2.16.840.1.113883.10.20.22.4.129"/>
-									<id root="03f5e10b-7e79-4610-9626-d2984ff10cc1"/>
-									<code code="48768-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Payment Sources"/>
-									<statusCode code="active"/>
-									<entryRelationship typeCode="COMP">
-										<act classCode="ACT" moodCode="INT">
-											<!-- These act/identifiers are unique identifiers 
-												for the policy or program providing the coverage. -->
-											<id root="4c9a3be1-5f09-46dd-88e7-14c8ec612e4c"/>
-											<code code="111" displayName="Medicare HMO" codeSystemName="Source of Payment Typology (PHDSC)" codeSystem="2.16.840.1.113883.3.221.5"/>
-											<statusCode code="active"/>
-										</act>
-									</entryRelationship>
-								</act>
-							</entryRelationship>
-							<entryRelationship typeCode="REFR">
-								<observation classCode="OBS" moodCode="EVN">
-									<!-- Priority Preference -->
-									<templateId root="2.16.840.1.113883.10.20.22.4.143"/>
-									<id root="9a6d1bac-17d3-4195-89a4-1121bc809b4d"/>
-									<code code="225773000" codeSystemName="SNOMED CT" codeSystem="2.16.840.1.113883.6.96"> </code>
-									<effectiveTime value="20130615"/>
-									<priorityCode code="255216001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="First"/>
-									<value xsi:type="CD" code="394848005" codeSystem="2.16.840.1.113883.6.96" displayName="Normal priority"/>
-									<author typeCode="AUT">
-										<templateId root="2.16.840.1.113883.10.20.22.4.119"/>
-										<time value="201306151145-0800"/>
-										<assignedAuthor>
-											<!-- this id indicates the priority preference is a provider not a patient priority preference -->
-											<id extension="555555555" root="2.16.840.1.113883.4.6"/>
-											<code code="207QA0505X" displayName="Adult Medicine" codeSystem="2.16.840.1.113883.6.101" codeSystemName="Healthcare Provider Taxonomy (HIPAA)"/>
-										</assignedAuthor>
-									</author>
-								</observation>
-							</entryRelationship>
-							<entryRelationship typeCode="REFR">
-								<observation classCode="OBS" moodCode="EVN">
-									<!--  Priority Preference-->
-									<templateId root="2.16.840.1.113883.10.20.22.4.143"/>
-									<id root="9a6d1bac-17d3-4195-89a4-1121bc809b4d"/>
-									<code code="225773000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="preference"/>
-									<effectiveTime value="20130615"/>
-									<value xsi:type="CD" code="394848005" codeSystem="2.16.840.1.113883.6.96" displayName="Normal priority"/>
-									<author typeCode="AUT">
-										<templateId root="2.16.840.1.113883.10.20.22.4.119"/>
-										<time value="201306151145-0800"/>
-										<assignedAuthor>
-											<id extension="555555555" root="2.16.840.1.113883.4.6"/>
-											<code code="207QA0505X" displayName="Adult Medicine" codeSystem="2.16.840.1.113883.6.101" codeSystemName="Healthcare Provider Taxonomy (HIPAA)"/>
-										</assignedAuthor>
-									</author>
-								</observation>
-							</entryRelationship>
-						</procedure>
-					</entry>
 				</section>
 			</component>
 			<!-- ***************** PROBLEM LIST *********************** -->
@@ -2605,7 +2599,11 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td ID="Proc1">Colonic polypectomy</td>
+									<td ID="Proc1">Ankle Surgery</td>
+									<td>2016</td>
+								</tr>
+								<tr>
+									<td ID="Proc2">Colonic polypectomy</td>
 									<td>1998</td>
 								</tr>
 							</tbody>
@@ -2621,6 +2619,67 @@
 							<code code="73761001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Colonoscopy">
 								<originalText>
 									<reference value="#Proc1"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime value="20161002"/>
+							<methodCode nullFlavor="UNK"/>
+							<targetSiteCode code="appropriate_code" displayName="ankle" codeSystem="2.16.840.1.113883.3.88.12.3221.8.9" codeSystemName="Body Site Value Set"/>
+							<specimen typeCode="SPC">
+								<specimenRole classCode="SPEC">
+									<id root="c2ee9ee9-ae31-4628-a919-fec1cbb58683"/>
+									<specimenPlayingEntity>
+										<code code="309226005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="ankle surgery"/>
+									</specimenPlayingEntity>
+								</specimenRole>
+							</specimen>
+							<performer>
+								<assignedEntity>
+									<id root="2.16.840.1.113883.19.5.9999.456" extension="2981823"/>
+									<addr>
+										<streetAddressLine>555 Health Drive</streetAddressLine>
+										<city>Nashville</city>
+										<state>TN</state>
+										<postalCode>37208</postalCode>
+										<country>US</country>
+									</addr>
+									<telecom use="WP" value="+1(555)555-5000"/>
+									<representedOrganization classCode="ORG">
+										<id root="2.16.840.1.113883.19.5.9999.1393"/>
+										<name>Nashville General Hospital</name>
+										<telecom use="WP" value="+1(555)555-5000"/>
+										<addr>
+											<streetAddressLine>555 Health Drive</streetAddressLine>
+											<city>Nashville</city>
+											<state>TN</state>
+											<postalCode>37208</postalCode>
+											<country>US</country>
+										</addr>
+									</representedOrganization>
+								</assignedEntity>
+							</performer>
+							<participant typeCode="DEV">
+								<participantRole classCode="MANU">
+									<!-- ** Product instance ** -->
+									<templateId root="2.16.840.1.113883.10.20.22.4.37"/>
+									<id root="742aee30-21c5-11e1-bfc2-0800200c9a66"/>
+									<playingDevice>
+										<code code="90412006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Surgery"/>
+									</playingDevice>
+									<scopingEntity>
+										<id root="eb936010-7b17-11db-9fe1-0800200c9b65"/>
+									</scopingEntity>
+								</participantRole>
+							</participant>
+						</procedure>
+						<procedure classCode="PROC" moodCode="EVN">
+							<!-- ** Procedure activity procedure ** -->
+							<templateId root="2.16.840.1.113883.10.20.22.4.14" extension="2014-06-09"/>
+							<templateId root="2.16.840.1.113883.10.20.22.4.14"/>
+							<id root="d68b7e32-7810-4f5b-9cc2-acd54b0fd85d"/>
+							<code code="73761001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Colonoscopy">
+								<originalText>
+									<reference value="#Proc2"/>
 								</originalText>
 							</code>
 							<statusCode code="completed"/>
@@ -2681,9 +2740,69 @@
 							<templateId root="2.16.840.1.113883.10.20.22.4.13" extension="2014-06-09"/>
 							<templateId root="2.16.840.1.113883.10.20.22.4.13"/>
 							<id extension="123456789" root="2.16.840.1.113883.19"/>
-							<code code="274025005" codeSystem="2.16.840.1.113883.6.96" displayName="Colonic polypectomy" codeSystemName="SNOMED CT">
+							<code code="274025005" codeSystem="2.16.840.1.113883.6.96" displayName="Ankle Surgery" codeSystemName="SNOMED CT">
 								<originalText>
 									<reference value="#Proc1"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime value="20161002"/>
+							<priorityCode code="CR" codeSystem="2.16.840.1.113883.5.7" codeSystemName="ActPriority" displayName="Callback results"/>
+							<value xsi:type="CD"/>
+							<methodCode nullFlavor="UNK"/>
+							<targetSiteCode code="416949008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Ankle"/>
+							<performer>
+								<assignedEntity>
+									<id root="2.16.840.1.113883.19.5" extension="1234"/>
+									<addr>
+										<streetAddressLine>555 Health Drive</streetAddressLine>
+										<city>Nashville</city>
+										<state>TN</state>
+										<postalCode>37208</postalCode>
+										<country>US</country>
+									</addr>
+									<telecom use="WP" value="tel: +1(555)555-5000"/>
+									<representedOrganization>
+										<id root="2.16.840.1.113883.19.5"/>
+										<name>Community Health and Hospitals</name>
+										<telecom use="WP" value="tel: +1(555)555-5000"/>
+										<addr>
+											<streetAddressLine>555 Health Drive</streetAddressLine>
+											<city>Nashville</city>
+											<state>TN</state>
+											<postalCode>37208</postalCode>
+											<country>US</country>
+										</addr>
+									</representedOrganization>
+								</assignedEntity>
+							</performer>
+							<participant typeCode="LOC">
+								<participantRole classCode="SDLOC">
+									<!-- ** Service delivery location ** -->
+									<templateId root="2.16.840.1.113883.10.20.22.4.32"/>
+									<code code="1118-9" codeSystem="2.16.840.1.113883.6.259" codeSystemName="HL7 HealthcareServiceLocation" displayName="Emergency Room"/>
+									<addr>
+										<streetAddressLine>555 Health Drive</streetAddressLine>
+										<city>Nashville</city>
+										<state>TN</state>
+										<postalCode>37208</postalCode>
+										<country>US</country>
+									</addr>
+									<telecom use="WP" value="tel: +1(555)555-5009"/>
+									<playingEntity classCode="PLC">
+										<name>Nashville General Emergency Department</name>
+									</playingEntity>
+								</participantRole>
+							</participant>
+						</observation>
+						<observation classCode="OBS" moodCode="EVN">
+							<!-- ** Procedure activity observation (V2) ** -->
+							<templateId root="2.16.840.1.113883.10.20.22.4.13" extension="2014-06-09"/>
+							<templateId root="2.16.840.1.113883.10.20.22.4.13"/>
+							<id extension="123456789" root="2.16.840.1.113883.19"/>
+							<code code="274025005" codeSystem="2.16.840.1.113883.6.96" displayName="Colonic polypectomy" codeSystemName="SNOMED CT">
+								<originalText>
+									<reference value="#Proc2"/>
 								</originalText>
 							</code>
 							<statusCode code="aborted"/>
@@ -2745,7 +2864,7 @@
 							<id root="1.2.3.4.5.6.7.8" extension="1234567"/>
 							<code code="274025005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Colonic polypectomy">
 								<originalText>
-									<reference value="#Proc1"/>
+									<reference value="#Proc2"/>
 								</originalText>
 							</code>
 							<statusCode code="completed"/>
@@ -2791,6 +2910,63 @@
 									<telecom use="WP" value="tel: +1(555)-555-5009"/>
 									<playingEntity classCode="PLC">
 										<name>Community Gastroenterology Clinic</name>
+									</playingEntity>
+								</participantRole>
+							</participant>
+						</act>
+						<act classCode="ACT" moodCode="EVN">
+							<!-- Procedure activity act (V2) -->
+							<templateId root="2.16.840.1.113883.10.20.22.4.12" extension="2014-06-09"/>
+							<templateId root="2.16.840.1.113883.10.20.22.4.12"/>
+							<id root="1.2.3.4.5.6.7.8" extension="1234567"/>
+							<code code="274025005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Surgery">
+								<originalText>
+									<reference value="#Proc1"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime value="20161002"/>
+							<priorityCode code="CR" codeSystem="2.16.840.1.113883.5.7" codeSystemName="ActPriority" displayName="Callback results"/>
+							<performer>
+								<assignedEntity>
+									<id root="2.16.840.1.113883.19" extension="1234"/>
+									<addr>
+										<streetAddressLine>555 Health Drive</streetAddressLine>
+										<city>Nashville</city>
+										<state>TN</state>
+										<postalCode>37208</postalCode>
+										<country>US</country>
+									</addr>
+									<telecom use="WP" value="tel: +1(555)555-5000"/>
+									<representedOrganization>
+										<id root="2.16.840.1.113883.19.5"/>
+										<name>Nashville General</name>
+										<telecom use="WP" value="tel: +1(555)555-5000"/>
+										<addr>
+											<streetAddressLine>555 Health Drive</streetAddressLine>
+											<city>Nashville</city>
+											<state>TN</state>
+											<postalCode>37208</postalCode>
+											<country>US</country>
+										</addr>
+									</representedOrganization>
+								</assignedEntity>
+							</performer>
+							<participant typeCode="LOC">
+								<participantRole classCode="SDLOC">
+									<!-- ** Service delivery location ** -->
+									<templateId root="2.16.840.1.113883.10.20.22.4.32"/>
+									<code code="1118-9" codeSystem="2.16.840.1.113883.6.259" codeSystemName="HL7 HealthcareServiceLocation" displayName="Gastroenterology Clinic"/>
+									<addr>
+										<streetAddressLine>555 Health Drive</streetAddressLine>
+										<city>Nashville</city>
+										<state>TN</state>
+										<postalCode>37208</postalCode>
+										<country>US</country>
+									</addr>
+									<telecom use="WP" value="tel: +1(555)-555-5009"/>
+									<playingEntity classCode="PLC">
+										<name>Nashville General Emergency Department</name>
 									</playingEntity>
 								</participantRole>
 							</participant>

@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="CDA.xsl"?>
 <!--
+	This is the seeding file for John Smith's CCD from the Mayo Clinic
+
+	Key items include
+		- Allergies
+		- Medications
+-->
+
+<!--
  Title:        Continuity of Care Document (CCD)
  Filename:     C-CDA_R2.1_CCD.xml 
- Created by:   Lantana Consulting Group, LLC
  Updated: C-CDA R2.1 editing team 
  
- $LastChangedDate: 2015-8-11 11:25:09 -0400 (Wed, 11 Aug 2015) $
+ $LastChangedDate: 2016-10-02 02:07:09 -0400 (Sun, 02 Oct 2016) $
   
  ********************************************************
  Disclaimer: This sample file contains representative data elements to represent a Continuity of Care Document (CCD). 
@@ -50,9 +57,9 @@
 			<!-- HP is "primary home" from HL7 AddressUse 2.16.840.1.113883.5.1119 -->
 			<patient>
 				<name use="L">
-					<given>Eve</given>
+					<given>Jane</given>
 					<!-- The "SP" is "Spouse" from HL7 Code System EntityNamePartQualifier 2.16.840.1.113883.5.43 -->
-					<family qualifier="SP">Betterhalf</family>
+					<family qualifier="SP">Doe</family>
 				</name>
 				<administrativeGenderCode code="F" displayName="Female" codeSystem="2.16.840.1.113883.5.1" codeSystemName="AdministrativeGender"/>
 				<!-- Date of birth need only be precise to the day -->
@@ -79,7 +86,7 @@
 						<name>
 							<given>Boris</given>
 							<given qualifier="CL">Bo</given>
-							<family>Betterhalf</family>
+							<family>Doe</family>
 						</name>
 					</guardianPerson>
 				</guardian>
@@ -285,7 +292,7 @@
 				<name>
 					<given>Boris</given>
 					<given qualifier="CL">Bo</given>
-					<family>Betterhalf</family>
+					<family>Doe</family>
 				</name>
 			</relatedPerson>
 		</relatedEntity>
@@ -389,7 +396,7 @@
 				<name>
 					<given>Boris</given>
 					<given qualifier="CL">Bo</given>
-					<family>Betterhalf</family>
+					<family>Doe</family>
 				</name>
 			</associatedPerson>
 		</associatedEntity>
@@ -410,7 +417,7 @@
 				<name>
 					<given>Boris</given>
 					<given qualifier="CL">Bo</given>
-					<family>Betterhalf</family>
+					<family>Doe</family>
 				</name>
 			</associatedPerson>
 		</associatedEntity>
@@ -633,6 +640,14 @@
 								<tr>
 									<td ID="substance2">Codeine</td>
 									<td ID="reaction2">Wheezing</td>
+								</tr>
+								<tr>
+									<td ID="substance3">Morphine</td>
+									<td ID="reaction3">Respiratory Issues</td>
+								</tr>
+								<tr>
+									<td ID="substance4">Latex</td>
+									<td ID="reaction4">Skin rash on contact area</td>
 								</tr>
 							</tbody>
 						</table>
@@ -2146,7 +2161,7 @@
 											<assignedPerson>
 												<name>
 													<given>Boris</given>
-													<family>Betterhalf</family>
+													<family>Doe</family>
 												</name>
 											</assignedPerson>
 										</assignedEntity>
@@ -2172,7 +2187,7 @@
 												<name>
 													<!-- Name is needed if different than health plan name. -->
 													<given>Boris</given>
-													<family>Betterhalf</family>
+													<family>Doe</family>
 												</name>
 												<sdtc:birthTime value="19750501"/>
 											</playingEntity>
