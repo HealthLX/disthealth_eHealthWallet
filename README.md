@@ -1,23 +1,61 @@
 # Universal CCD
 ### disthealth_eHealthWallet
 
-Our blockchain entry into the DistHealth hackathon
+Our blockchain entry into the #disthealth #hackathon
 
-## Technologies used
+# Links
+* [Our Presentation on our proposed solution](https://docs.google.com/presentation/d/16kK7OJzINItUhMO_3toGFg3vpAs3yIDP1l5XXYZWGZQ/edit?usp=sharing)
+	
 
-* HealthLX CCD viewer (Patient Insight)
-	* <http://52.20.128.239:3000/>
-* DICOM viewer
-	* <https://ivmartel.github.io/dwv/demo/stable/viewers/static/index.html>
-* Ethereum (blockchain)
-* Tierion (non-repudiation system  - uses blockchain)
-	* <https://tierion.com/>
+# Design Considerations
+* IPFS is used for Public Distributed Storage
+	* IPFS files never go away
+	* Due to this current limitation, this solution would use the Private Swarms and Private Gateways currently being developed
+	* We cannot trust IPFS, so we use a non-repudiation system like Tierion
+* A Patient establishes a smart contract with their Payer (Insurance Company), who acts as their **Custodian**
+	* This is akin to an Insurance Card you get today from your Insurance Company
+	* The Custodian creates an empty **Ledger** in IPFS for the Patient
+	* The hash from that Ledger file added to IPFS provides the original value in the User's digital eHealth wallet
+		* The Patient's wallet also contains the Public Key of the Custodian
+		* The Custodian retains the Patient's Public Key
+* A Patient establishes a relationship with a Service Provider (Hospital)
+	* This is akin to giving them their Insurance Card
+		* This includes the Patient's Public Key
+		* This includes the hash (Filename) for the Patient's Consolidated CCD Ledger file in IPFS
+		* This includes the Custodian's Public Key
+	* The Service Provider (SP) provides the Patient with the SP's Public Key that is added to the Patient's wallet
+* A SP (Hospital, Clinic, Doctor, etc) contributes new CCD information for a Patient by adding the CCD into IPFS
+	* The hash from the new file is added to the user's Ledger in IPFS
+	* This is tracked as a Business transactions with the Custodian for the CCD addition added to IPFS using Ethereum
+	* Values returned from the interactions with IPFS and Ethereum are used in a transaction with Tierion (which creates a verifiable record of any data or business process on the blockchain) 
+* The same process as above, is used when Custodian's (most likely in a Case Management Situation) create additional data for a new CCD file.
+
+# Smart Contract
+Our smart contract between the User (Patient) and their Payer (Insurance Company), who acts as their Custodian, has the following features.
+
+* Automatic Exchange Policies
+* Digital Signatures
+* Enforce Encryption Algorithms
+* Enforce Key Size
+* Key Exchange
+* Licenses
+	* Ability to submit data for research purposes that is stripped of PHI (anonymized)
+* Protocols for Consolidated CCD
+* Selective Sharing
+* Version Information for Supported C-CDA format.
+
+# Technologies Used
+
+* [HealthLX CCD viewer (Patient Insight)](http://52.20.128.239:3000/)
+* [DICOM viewer](https://ivmartel.github.io/dwv/demo/stable/viewers/static/index.html)
+* [Ethereum (blockchain)](https://www.ethereum.org/)
+* [Tierion (non-repudiation system  - uses blockchain)](https://tierion.com/)
 	* <https://tierion.com/proof>
-* IPFS (distributed storage)
+* [IPFS (distributed storage)](https://ipfs.io/)
 
 # FAQ
 
-## Why use Tierion?
+## What does Tierion do?
 
 Tierion is based on **Proof of Existence**
 
