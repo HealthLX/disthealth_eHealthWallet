@@ -1,4 +1,4 @@
 # IPFS temporary data
-docker/data
-docker/staging
+src/integration-test/docker/data/
+src/integration-test/docker/staging/
 
