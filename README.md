@@ -41,7 +41,10 @@ The key advantages are anonymity, privacy, and getting a decentralized proof whi
 ** http to https redirect: http://nashvillegeneral.apifocal.org -> https://nashvillegeneral.apifocal.org
 * generate certs using letsencrypt
 
-
+```ssh
+sudo ./certbot-auto certonly --webroot -w /var/www/html -d nashvillegeneral.apifocal.org --email alex@apifocal.com
+sudo ./certbot-auto certonly --webroot -w /var/www/html -d mayoclinic.apifocal.org --email alex@apifocal.com
+```
 
 ### Setup a private Ethereum Blockchain
 
