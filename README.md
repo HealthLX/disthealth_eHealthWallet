@@ -13,7 +13,10 @@ Our blockchain entry into the DistHealth hackathon
 * Tierion (non-repudiation system  - uses blockchain)
 	* <https://tierion.com/>
 	* <https://tierion.com/proof>
-* IPFS (distributed storage)
+* IPFS (distributed storage). Other alternatives
+  * [MIT Enigma](http://enigma.media.mit.edu/)
+  * [Blockstack](https://blockstack.org/)
+
 
 # FAQ
 
