@@ -1,13 +1,19 @@
-# disthealth_eHealthWallet
+# Universal CCD
+### disthealth_eHealthWallet
+
 Our blockchain entry into the DistHealth hackathon
 
 ## Technologies used
 
-* HealthLX CCD viewer
+* HealthLX CCD viewer (Patient Insight)
+	* <http://52.20.128.239:3000/>
+* DICOM viewer
+	* <https://ivmartel.github.io/dwv/demo/stable/viewers/static/index.html>
 * ethereum (blockchain)
-* tierion (non-repudiation system)
+* tierion (non-repudiation system  - uses blockchain)
+	* <https://tierion.com/>
+	* <https://tierion.com/proof>
 * IPFS (distributed storage)
-
 
 # FAQ
 
@@ -22,4 +28,3 @@ All we store is a cryptographic digest of the file, linked to the time in which 
 
 The key advantages are anonymity, privacy, and getting a decentralized proof which can't be erased or modified by anyone (third parties or governments). Your document's existence is permanently validated by the blockchain even if this site is compromised or down, so you don't depend or need to trust any central authority. All previous data timestamping solutions lack this freedom.
 ```
-
