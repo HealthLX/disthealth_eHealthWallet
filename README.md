@@ -5,7 +5,6 @@ Our blockchain entry into the #disthealth #hackathon
 
 # Links
 * [Our Presentation on our proposed solution](https://docs.google.com/presentation/d/16kK7OJzINItUhMO_3toGFg3vpAs3yIDP1l5XXYZWGZQ/edit?usp=sharing)
-	
 
 # Design Considerations
 * IPFS is used for Public Distributed Storage
@@ -51,7 +50,9 @@ Our smart contract between the User (Patient) and their Payer (Insurance Company
 * [Ethereum (blockchain)](https://www.ethereum.org/)
 * [Tierion (non-repudiation system  - uses blockchain)](https://tierion.com/)
 	* <https://tierion.com/proof>
-* [IPFS (distributed storage)](https://ipfs.io/)
+* [IPFS (distributed storage)](https://ipfs.io/). Other alternatives:
+  * [MIT Enigma](http://enigma.media.mit.edu/)
+  * [Blockstack](https://blockstack.org/)
 
 # FAQ
 
