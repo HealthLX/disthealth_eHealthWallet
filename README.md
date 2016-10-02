@@ -28,3 +28,21 @@ All we store is a cryptographic digest of the file, linked to the time in which 
 
 The key advantages are anonymity, privacy, and getting a decentralized proof which can't be erased or modified by anyone (third parties or governments). Your document's existence is permanently validated by the blockchain even if this site is compromised or down, so you don't depend or need to trust any central authority. All previous data timestamping solutions lack this freedom.
 ```
+
+# Log
+
+### Generate certs for hospitals
+
+* setup DNS for hospitals (mayoclinic.apifocal.org, nashvillecentral.apifocal.org)
+* install certbot
+* install & configure apache2 (80/443)
+* setup vhost for hospital
+** http to https redirect: http://mayoclinic.apifocal.org -> https://mayoclinic.apifocal.org
+** http to https redirect: http://nashvillegeneral.apifocal.org -> https://nashvillegeneral.apifocal.org
+* generate certs using letsencrypt
+
+
+
+### Setup a private Ethereum Blockchain
+
+### Create a Smart Contract
