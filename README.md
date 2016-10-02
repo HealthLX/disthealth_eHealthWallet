@@ -35,8 +35,8 @@ The key advantages are anonymity, privacy, and getting a decentralized proof whi
 * install certbot
 * install & configure apache2 (80/443)
 * setup vhost for hospital
-** http to https redirect: http://mayoclinic.apifocal.org -> https://mayoclinic.apifocal.org
-** http to https redirect: http://nashvillegeneral.apifocal.org -> https://nashvillegeneral.apifocal.org
+  * http to https redirect: http://mayoclinic.apifocal.org -> https://mayoclinic.apifocal.org
+  * http to https redirect: http://nashvillegeneral.apifocal.org -> https://nashvillegeneral.apifocal.org
 * generate certs using letsencrypt
 
 ```ssh
