@@ -1,0 +1,29 @@
+{
+  "name": "tiernon-bridge",
+  "version": "0.0.1",
+  "description": "Tierion - HealthLX CCD bridge for non-repudiation",
+  "main": "tierion-bridge.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/healthlx/ccd-viewer-non-repudiation.git"
+  },
+  "keywords": [
+    "tierion",
+    "hash api",
+    "blockchain api",
+    "healthcare CCD viewer",
+    "api"
+  ],
+  "author": "Alexandru Zbarcea <alex@apifocal.com> (https://apifocal.com)",
+  "license": "MIT",
+  "homepage": "https://healthlx.com/",
+  "dependencies": {
+    "hashapi-lib-node": "^1.1.0",
+    "jsonwebtoken": "^7.0.0",
+    "request": "^2.72.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "sinon": "^1.17.3"
+  }
+}

@@ -1,0 +1,5 @@
+# IPFS temporary data
+src/integration-test/docker/data/
+
+# Javascript development
+src/main/js/node_modules/
